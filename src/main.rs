@@ -148,7 +148,7 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> io::Result<(
 fn value(character: char, word: String, comparison: char) -> CharacterStatus {
     if comparison.to_string() == character.to_lowercase().to_string() {
         return CharacterStatus::Correct;
-    } else if word.contains(character) {
+    } else if word.contains(character.to_lowercase().next().unwrap()) {
         return CharacterStatus::SomewhereElse;
     } else {
         return CharacterStatus::Incorrect;
